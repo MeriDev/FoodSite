@@ -1,30 +1,10 @@
 import { useEffect, useState } from 'react';
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-
-import LoadingSkeleton from '@/LoadingSkeleton';
-
-interface Recipes {
-  id: string;
-  title: string;
-  image: string;
-  time: number;
-  description: string;
-  vegan: boolean;
-}
+import { Recipe } from '@/lib/types/recipe';
+import LoadingSkeleton from '@/components/LoadingSkeleton';
+import RecipeCard from '@/components/RecipeCard';
 
 function Home() {
-  const [recipes, setRecipes] = useState<Recipes[]>([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [isloading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -35,9 +15,9 @@ function Home() {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         setIsLoading(true);
-        const data: Recipes[] = await response.json();
+        const data: Recipe[] = await response.json();
         setRecipes(data);
       } catch (error) {
         console.error('Failed to fetch recipes:', error);
@@ -48,38 +28,11 @@ function Home() {
 
   return (
     <>
-      <nav>
-        <h1>Recipes for Ninjas</h1>
-      </nav>
-
       <main>
         {isloading ? (
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 gap-8 sm:grid-cols-1 sm:px-4">
             {recipes.map(recipe => (
-              <Card key={recipe.id} className="flex flex-col justify-between">
-                <CardHeader className="flex-row gap-4 items-center">
-                  <Avatar>
-                    <AvatarImage
-                      src={`img/${recipe.image}`}
-                      alt="recipe image"
-                    />
-                    <AvatarFallback>{recipe.title.slice(0, 2)}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <CardTitle>{recipe.title}</CardTitle>
-                    <CardDescription>
-                      {recipe.time} mins to cook
-                    </CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p>{recipe.description}</p>
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                  <Button>View recipe</Button>
-                  {recipe.vegan && <Badge variant="secondary">Vegan!</Badge>}
-                </CardFooter>
-              </Card>
+              <RecipeCard key={recipe.id} recipe={recipe} />
             ))}
           </div>
         ) : (

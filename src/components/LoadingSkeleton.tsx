@@ -1,11 +1,6 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardFooter,
-} from './components/ui/card';
+import { Card, CardContent, CardHeader, CardFooter } from './ui/card';
 
-import { Skeleton } from './components/ui/skeleton';
+import { Skeleton } from './ui/skeleton';
 
 const LoadingSkeleton = () => {
   return (

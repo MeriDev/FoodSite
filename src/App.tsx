@@ -1,9 +1,16 @@
+import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
+import Pizza from './pages/pizza';
+import Header from './components/Header';
 
 function App() {
   return (
     <>
-      <Home />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pizza/*" element={<Pizza />} />
+      </Routes>
     </>
   );
 }

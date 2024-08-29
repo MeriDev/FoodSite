@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -68,8 +70,7 @@
   }
 }
 
-main,
-nav {
+main {
   @apply max-w-6xl mx-auto my-12;
 }
 
@@ -81,6 +82,68 @@ h1 {
   @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
 }
 
-h2 {
+/* h2 {
   @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0;
+} */
+
+/* ============Pizza Styles============ */
+
+.pizza-body {
+  background: rgb(100, 0, 123);
+  background: radial-gradient(
+    circle,
+    rgba(100, 0, 123, 1) 0%,
+    rgba(62, 20, 86, 1) 100%
+  );
+  overflow: hidden;
+  color: #fff;
+}
+
+.pizza-svg {
+  width: 80px;
+  overflow: visible;
+  stroke: currentColor;
+  stroke-width: 4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.btn {
+  color: currentColor;
+  padding: 10px 30px;
+  font-size: 1em;
+  background: transparent;
+  border-radius: 50px;
+  border: 1px solid currentColor;
+  margin: 40px auto 0;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/* lists */
+li span.active {
+  font-weight: bold;
+}
+li span.active::before {
+  content: '>';
+  position: relative;
+  top: -2px;
+  margin-right: 6px;
+  transform: scale(0.8, 1);
+  display: inline-block;
+}
+
+/* To check agin */
+.container {
+  max-width: 300px;
+  margin: 100px auto 40px;
+}
+.container h3 {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.container li {
+  padding: 10px;
+  cursor: pointer;
 }

@@ -18,8 +18,8 @@ const Base = ({ addBase, pizza }) => {
       </ul>
 
       {pizza.base && (
-        <div className="next">
-          <Link to="/toppings">
+        <div className="btn next">
+          <Link to="/pizza/topping">
             <button>Next</button>
           </Link>
         </div>

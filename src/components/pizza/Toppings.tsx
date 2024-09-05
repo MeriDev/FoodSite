@@ -24,7 +24,7 @@ const Toppings = ({ addTopping, pizza }) => {
         })}
       </ul>
 
-      <Link to="/order">
+      <Link to="/pizza/order" className="btn next">
         <button>Order</button>
       </Link>
     </div>

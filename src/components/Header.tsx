@@ -24,7 +24,7 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link className="btn " to="/pizza">
+            <Link className="btn" to="/pizza">
               Customize Pizza
             </Link>
           </li>

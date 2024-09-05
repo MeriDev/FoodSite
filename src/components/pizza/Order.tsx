@@ -1,6 +1,6 @@
 const Order = ({ pizza }) => {
   return (
-    <div className="text-center max-w-3xl">
+    <div className="text-center max-w-3xl mx-auto mt-10 text-xl">
       <h2>Thank you for your order :)</h2>
       <p className="my-5 mx-auto">You ordered a {pizza.base} pizza with:</p>
       {pizza.toppings.map(topping => (

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Header = () => {
   return (
@@ -17,9 +18,14 @@ const Header = () => {
             <path fill="none" d="M50 30 L50 -10 C50 -10 90 -10 90 30 Z" />
           </svg>
         </div>
-        <div className="font-quicksand flex">
-          <h1 className="pb-1 text-3xl font-normal  ml-5 ">Food Joint</h1>
-        </div>
+        <motion.div
+          initial={{ y: -250 }}
+          animate={{ y: -10 }}
+          transition={{ delay: 0.2, stiffness: 120, type: 'spring' }}
+          className="flex"
+        >
+          <h1 className="pb-1 text-3xl font-normal ml-5 ">Food Joint</h1>
+        </motion.div>
       </Link>
       <nav>
         <ul>

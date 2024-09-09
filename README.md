@@ -1,3 +1,3 @@
 Food App project using:
 Vite - React - React Router Dom
-ShadCDN and Framer motion
+ShadCN and Framer motion

@@ -71,7 +71,7 @@
 }
 
 main {
-  @apply max-w-6xl mx-auto my-12;
+  @apply max-w-7xl mx-auto my-12;
 }
 
 p {
@@ -98,10 +98,12 @@ h1 {
   overflow: hidden;
   color: #fff;
   font-family: 'Quicksand', sans-serif;
+  letter-spacing: 2px;
 }
 
 .pizza-svg {
-  width: 80px;
+  padding-top: 1rem;
+  width: 70px;
   overflow: visible;
   stroke: currentColor;
   stroke-width: 4;

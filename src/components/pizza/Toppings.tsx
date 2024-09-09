@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const Toppings = ({ addTopping, pizza }) => {
+type ToppingsProps = {
+  pizza: { toppings: string[] };
+  addTopping: (topping: string) => void;
+};
+
+const Toppings = ({ addTopping, pizza }: ToppingsProps) => {
   const toppings = [
     'mushrooms',
     'peppers',

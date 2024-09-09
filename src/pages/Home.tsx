@@ -30,7 +30,7 @@ function Home() {
     <>
       <main>
         {isloading ? (
-          <div className="grid grid-cols-3 gap-8 sm:grid-cols-1 sm:px-4">
+          <div className="grid md:grid-cols-3 gap-8 sm:px-4 sm:grid-cols-1">
             {recipes.map(recipe => (
               <RecipeCard key={recipe.id} recipe={recipe} />
             ))}

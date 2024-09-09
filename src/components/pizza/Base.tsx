@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const Base = ({ addBase, pizza }) => {
+type BaseProps = {
+  pizza: { base: string };
+  addBase: (base: string) => void;
+};
+
+const Base = ({ addBase, pizza }: BaseProps) => {
   const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'];
 
   return (

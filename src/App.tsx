@@ -52,16 +52,18 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/pizza/*" element={<Pizza />} />
-        <Route
-          path="/pizza/base"
-          element={<Base addBase={addBase} pizza={pizza} />}
-        />
-        <Route
-          path="/pizza/topping"
-          element={<Toppings addTopping={addTopping} pizza={pizza} />}
-        />
-        <Route path="/pizza/order" element={<Order pizza={pizza} />} />
+        <Route path="pizza/*">
+          <Route index element={<Pizza />} />
+          <Route
+            path="base"
+            element={<Base addBase={addBase} pizza={pizza} />}
+          />
+          <Route
+            path="topping"
+            element={<Toppings addTopping={addTopping} pizza={pizza} />}
+          />
+          <Route path="order" element={<Order pizza={pizza} />} />
+        </Route>
       </Routes>
     </>
   );

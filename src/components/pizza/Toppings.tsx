@@ -6,6 +6,45 @@ type ToppingsProps = {
   addTopping: (topping: string) => void;
 };
 
+// variant
+const containerVariant = {
+  hidden: {
+    opacity: 0,
+    x: '100vw',
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { type: 'spring', delay: 0.5 },
+  },
+};
+
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    textShadow: '0px 0px 8px rgb(255,255,255)',
+    boxShadow: '0px 0px 8px rgb(255,255,255)',
+    transition: {
+      repeat: Infinity,
+      repeatType: 'reverse',
+      duration: 0.4,
+    },
+  },
+  exit: {
+    x: '-100vw',
+    transition: { ease: 'easeInOut' },
+  },
+};
+
+const nextVariants = {
+  hidden: { x: '-100vw' },
+
+  visible: {
+    x: 0,
+    transition: { type: 'spring', stiffness: 120, delay: 1.5 },
+  },
+};
+
 const Toppings = ({ addTopping, pizza }: ToppingsProps) => {
   const toppings = [
     'mushrooms',
@@ -17,7 +56,13 @@ const Toppings = ({ addTopping, pizza }: ToppingsProps) => {
   ];
 
   return (
-    <div className="toppings container">
+    <motion.div
+      variants={containerVariant}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="toppings container"
+    >
       <h3>Step 2: Choose Toppings</h3>
       <ul>
         {toppings.map(topping => {
@@ -35,19 +80,20 @@ const Toppings = ({ addTopping, pizza }: ToppingsProps) => {
         })}
       </ul>
 
-      <Link to="/pizza/order">
-        <motion.button
-          whileHover={{
-            scale: 1.1,
-            textShadow: '0px 0px 8px rgb(255,255,255)',
-            boxShadow: '0px 0px 8px rgb(255,255,255)',
-          }}
-          className="btn next"
-        >
-          Order
-        </motion.button>
-      </Link>
-    </div>
+      {pizza.toppings[0] && (
+        <motion.div variants={nextVariants}>
+          <Link to="/pizza/order">
+            <motion.button
+              variants={buttonVariants}
+              whileHover="hover"
+              className="btn next"
+            >
+              Order
+            </motion.button>
+          </Link>
+        </motion.div>
+      )}
+    </motion.div>
   );
 };
 

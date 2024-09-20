@@ -34,16 +34,16 @@ const nextVariants = {
 
 const buttonVariants = {
   hover: {
-    scale: 1.1,
-    textShadow: '0px 0px 8px rgb(255,255,255)',
-    boxShadow: '0px 0px 8px rgb(255,255,255)',
+    scale: 1.1 as const,
+    textShadow: '0px 0px 8px rgb(255,255,255)' as const,
+    boxShadow: '0px 0px 8px rgb(255,255,255)' as const,
     transition: {
       repeat: Infinity,
-      repeatType: 'reverse',
+      repeatType: 'reverse' as const,
       duration: 0.4,
     },
   },
-};
+} as const;
 
 const Base = ({ addBase, pizza }: BaseProps) => {
   const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'];

@@ -1,19 +1,20 @@
 import { Link, Outlet } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Loader from '@/components/Loader';
 
 //variants
 const buttonVariants = {
   hover: {
-    scale: 1.1,
-    textShadow: '0px 0px 8px rgb(255,255,255)',
-    boxShadow: '0px 0px 8px rgb(255,255,255)',
+    scale: 1.1 as const,
+    textShadow: '0px 0px 8px rgb(255,255,255)' as const,
+    boxShadow: '0px 0px 8px rgb(255,255,255)' as const,
     transition: {
       repeat: Infinity,
-      repeatType: 'reverse',
+      repeatType: 'reverse' as const,
       duration: 0.4,
     },
   },
-};
+} as const;
 
 const containerVariant = {
   hidden: { opacity: 0 },
@@ -44,6 +45,7 @@ const Pizza = () => {
             Create Your Pizza
           </motion.button>
         </Link>
+        <Loader />
       </motion.div>
       <Outlet />
     </>

@@ -7,7 +7,7 @@ const svgVariants = {
   },
   visible: {
     rotate: 0,
-    transition: { durartion: 1, delay: 0.5 },
+    transition: { durartion: 2, delay: 2 },
   },
 };
 
@@ -19,7 +19,7 @@ const pathVariants = {
   visible: {
     opacity: 1,
     pathLength: 1,
-    transition: { durartion: 2, ease: 'easeInOut' },
+    transition: { durartion: 5, delay: 1, ease: 'easeInOut' },
   },
 };
 
@@ -32,7 +32,12 @@ const Header = () => {
       transition={{ stiffness: 120, type: 'spring' }}
     >
       <Link to="/" className="flex items-center">
-        <div className="logo">
+        <motion.div
+          className="logo"
+          drag
+          dragElastic={0.7}
+          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+        >
           <motion.svg
             className="pizza-svg"
             variants={svgVariants}
@@ -52,7 +57,7 @@ const Header = () => {
               d="M50 30 L50 -10 C50 -10 90 -10 90 30 Z"
             />
           </motion.svg>
-        </div>
+        </motion.div>
         <div>
           <h1 className="pb-1 text-3xl font-normal ml-5">Food Joint</h1>
         </div>
